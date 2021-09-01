@@ -83,3 +83,34 @@ return new Promise<void>((resolve, reject) => {
 <img width="541" alt="스크린샷 2021-09-01 오후 2 37 00" src="https://user-images.githubusercontent.com/70752848/131617599-5553fd92-368a-431e-b763-daee1d257f4d.png">
 
 > As shown above, the error can be checked intuitively.
+
+## Error Handling Solution
+
+### Let's handle errors more intuitively.
+
+#### Error Handling Using Error Codes
+
+`serve.ts`
+```ts
+try {
+  // ...
+  console.log(
+    `Opened ${filename}. Navigate to http://localhost:${options.port} to edit the file.`
+  )
+} catch (err) {
+  if (err.code === 'EADDRINUSE') {
+    console.error('Port is in use. Try running on a different port');
+  } else {
+    console.log('Heres the problem', err.message);
+  }
+  process.exit(1); // If server startup fails, force shutdown
+}
+```
+
+### Execution Results
+#### On Success Result
+<img width="581" alt="스크린샷 2021-09-01 오후 3 21 29" src="https://user-images.githubusercontent.com/70752848/131621866-3a077f6c-285d-4380-bcb6-57a7037a21e7.png">
+
+#### On Error Result 
+<img width="381" alt="스크린샷 2021-09-01 오후 3 22 09" src="https://user-images.githubusercontent.com/70752848/131621934-ce5b2019-be3e-406f-a554-552ec971c272.png">
+
