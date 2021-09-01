@@ -170,3 +170,8 @@ import path from "path";
 const packagePath = require.resolve('local-client/build/index.html');
   app.use(express.static(path.dirname(packagePath)));
 ```
+
+## Which Method Do We Use?
+<img width="539" alt="스크린샷 2021-09-01 오후 11 21 25" src="https://user-images.githubusercontent.com/70752848/131688308-d9a04bbc-4396-4503-9667-3b3c9d7208d1.png">
+
+<img width="277" alt="스크린샷 2021-09-01 오후 11 26 48" src="https://user-images.githubusercontent.com/70752848/131689201-38099a8b-1065-4980-956a-c295a134ea5f.png">
