@@ -1,5 +1,10 @@
+import express from 'express';
+
+
 export const serve = (port: number, filename: string, dir: string) => {
-  console.log('serving traffic on port', port);
-  console.log('saving/fetching cells from', filename);
-  console.log('that file in is dir', dir);
-}
+  const app = express();
+
+  app.listen(port, () => {
+    console.log(`Listening on Port`, port)
+  });
+};
