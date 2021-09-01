@@ -114,3 +114,29 @@ try {
 #### On Error Result 
 <img width="381" alt="스크린샷 2021-09-01 오후 3 22 09" src="https://user-images.githubusercontent.com/70752848/131621934-ce5b2019-be3e-406f-a554-552ec971c272.png">
 
+
+## Accessing the React App
+
+<img width="765" alt="스크린샷 2021-09-01 오후 3 38 11" src="https://user-images.githubusercontent.com/70752848/131623762-5592df79-463e-4582-93cd-2de1947c8594.png">
+
+<img width="775" alt="스크린샷 2021-09-01 오후 3 38 51" src="https://user-images.githubusercontent.com/70752848/131623846-f2161d15-4120-4835-873d-6b84bebf92b4.png">
+
+
+### Using `http-proxy-middleware`
+
+`serve.ts`
+```ts
+// Adding This Logic
+app.use(
+  createProxyMiddleware({
+    target: 'http://localhost:3000',
+    ws: true, // Enabled WebSocket
+    logLevel: 'silent', // Quickly scan many output scrolls from the terminal
+  })
+);
+```
+
+### Running Root Project: `npm run start`
+
+<img width="1421" alt="스크린샷 2021-09-01 오후 3 57 28" src="https://user-images.githubusercontent.com/70752848/131626204-f3aef39a-b910-4353-ba59-75d31e2b8244.png">
+
