@@ -140,3 +140,33 @@ app.use(
 
 <img width="1421" alt="스크린샷 2021-09-01 오후 3 57 28" src="https://user-images.githubusercontent.com/70752848/131626204-f3aef39a-b910-4353-ba59-75d31e2b8244.png">
 
+## Building a Production Bundle
+
+### Direct access to the React Build folder
+
+<img width="698" alt="스크린샷 2021-09-01 오후 4 30 42" src="https://user-images.githubusercontent.com/70752848/131630645-1abcc8da-92ea-4831-aafd-c88eabb33c4b.png">
+
+> **⚠** But, It's not a good solution!
+
+### Why not?
+
+<img width="497" alt="스크린샷 2021-09-01 오후 4 40 31" src="https://user-images.githubusercontent.com/70752848/131632033-9673d036-9f15-44eb-951f-2bfcd653adbd.png">
+
+### Different Solution 
+
+#### Accessing via absolute path
+
+```ts
+// ...
+import path from "path";
+// app.use(
+//   createProxyMiddleware({
+//     target: 'http://localhost:3000',
+//     ws: true, // Enabled WebSocket
+//     logLevel: 'silent', // Quickly scan many output scrolls from the terminal
+//   })
+// );  DELETE !!! 
+
+const packagePath = require.resolve('local-client/build/index.html');
+  app.use(express.static(path.dirname(packagePath)));
+```
