@@ -99,7 +99,8 @@ export const saveCells = () => {
     dispatch: Dispatch<Action>,
     getState: () => RootState
   ) => {
-    const { cells: { data, order } } = getState();
+    const { cells: { data, order },
+    } = getState();
 
     const cells = order.map(id => data[id]);
 
